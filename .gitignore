@@ -1,0 +1,38 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+.env
+.env.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.vercel
+
+gemini 
+
+# Cloudinary hosted assets
+public/certificates/
+public/images/
+public/ammar_meman_resume.pdf
+public/resume.pdf
+public/projects/
+public/clones/
+src/assets/Screenshot_2026-04-08_223927-removebg-preview.png
