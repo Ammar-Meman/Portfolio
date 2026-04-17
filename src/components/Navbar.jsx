@@ -92,7 +92,7 @@ export const Navbar = () => {
 
               {/* Buttons */}
               <div className="flex items-center gap-1 sm:gap-2 shrink-0 pr-1">
-                <a href="https://res.cloudinary.com/dwusthzz5/image/upload/v1776362457/portfolio/resume/ry7bp6hlxmjtwz2ccpud.pdf" target="_blank" className="bg-blue-500/30 no-underline group cursor-pointer relative shadow-[0_0_15px_rgba(59,130,246,0.15)] rounded-full p-px text-[10px] sm:text-sm font-semibold leading-6 text-white inline-block">
+                <a href="https://res.cloudinary.com/dwusthzz5/image/upload/v1776448356/portfolio/resume/Ammar_Meman_Resume_Final.pdf" target="_blank" className="bg-blue-500/30 no-underline group cursor-pointer relative shadow-[0_0_15px_rgba(59,130,246,0.15)] rounded-full p-px text-[10px] sm:text-sm font-semibold leading-6 text-white inline-block">
                   <span className="absolute inset-0 overflow-hidden rounded-full">
                     <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.8)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                   </span>

@@ -115,7 +115,7 @@ export const Certifications = () => {
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
 
         <div className="text-center md:text-left mb-16">
-          <p className="text-sm font-bold text-blue-500 uppercase tracking-widest mb-4">05 / Achieved</p>
+          <p className="text-sm font-bold text-blue-500 uppercase tracking-widest mb-4">06 / Achieved</p>
           <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">
             Certifications
           </h2>

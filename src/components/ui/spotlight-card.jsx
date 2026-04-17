@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const glowColorMap = {
   blue: { base: 220, spread: 200 },
@@ -8,32 +8,61 @@ const glowColorMap = {
   orange: { base: 30, spread: 200 }
 };
 
-const GlowCard = ({ 
-  children, 
-  className = '', 
+// Detect touch-only devices (phones/tablets) — runs once
+const isTouchDevice = () =>
+  typeof window !== 'undefined' &&
+  window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+
+const GlowCard = ({
+  children,
+  className = '',
   glowColor = 'blue',
   customSize = false
 }) => {
   const cardRef = useRef(null);
-  const innerRef = useRef(null);
+  const [isTouch] = useState(() => isTouchDevice());
 
   useEffect(() => {
-    const syncPointer = (e) => {
-      const { clientX: x, clientY: y } = e;
-      if (cardRef.current) {
-        cardRef.current.style.setProperty('--x', x.toFixed(2));
-        cardRef.current.style.setProperty('--xp', (x / window.innerWidth).toFixed(2));
-        cardRef.current.style.setProperty('--y', y.toFixed(2));
-        cardRef.current.style.setProperty('--yp', (y / window.innerHeight).toFixed(2));
-      }
-    };
-    document.addEventListener('pointermove', syncPointer);
-    return () => document.removeEventListener('pointermove', syncPointer);
-  }, []);
+    if (isTouch) return; // skip all pointer tracking on mobile
 
+    let rafId = null;
+    const syncPointer = (e) => {
+      if (e.pointerType === 'touch') return;
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        rafId = null;
+        if (cardRef.current) {
+          const { clientX: x, clientY: y } = e;
+          cardRef.current.style.setProperty('--x', x.toFixed(2));
+          cardRef.current.style.setProperty('--xp', (x / window.innerWidth).toFixed(2));
+          cardRef.current.style.setProperty('--y', y.toFixed(2));
+          cardRef.current.style.setProperty('--yp', (y / window.innerHeight).toFixed(2));
+        }
+      });
+    };
+
+    document.addEventListener('pointermove', syncPointer, { passive: true });
+    return () => {
+      document.removeEventListener('pointermove', syncPointer);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, [isTouch]);
+
+  // ─── MOBILE: simple static card — zero expensive CSS, smooth scrolling ───
+  if (isTouch) {
+    return (
+      <div
+        className={`rounded-2xl relative w-full h-full border border-zinc-800/70 bg-zinc-900/60 shadow-lg ${className}`}
+      >
+        {children}
+      </div>
+    );
+  }
+
+  // ─── DESKTOP: full glow card ───
   const { base, spread } = glowColorMap[glowColor] || glowColorMap.blue;
 
-  const getInlineStyles = () => ({
+  const inlineStyles = {
     '--base': base,
     '--spread': spread,
     '--radius': '14',
@@ -57,8 +86,7 @@ const GlowCard = ({
     backgroundAttachment: 'fixed',
     border: 'var(--border-size) solid var(--backup-border)',
     position: 'relative',
-    touchAction: 'none',
-  });
+  };
 
   const beforeAfterStyles = `
     [data-glow]::before,
@@ -95,7 +123,6 @@ const GlowCard = ({
     [data-glow] [data-glow] {
       position: absolute;
       inset: 0;
-      will-change: filter;
       opacity: var(--outer, 1);
       border-radius: calc(var(--radius) * 1px);
       border-width: calc(var(--border-size) * 20);
@@ -116,10 +143,10 @@ const GlowCard = ({
       <div
         ref={cardRef}
         data-glow
-        style={getInlineStyles()}
+        style={inlineStyles}
         className={`rounded-2xl relative grid grid-rows-[1fr_auto] shadow-[0_1rem_2rem_-1rem_black] p-0 gap-4 backdrop-blur-[5px] w-full h-full ${className}`}
       >
-        <div ref={innerRef} data-glow></div>
+        <div data-glow />
         {children}
       </div>
     </>

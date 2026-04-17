@@ -2,6 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '../../lib/utils';
 
+// Detect touch-only (mobile) devices
+const isMobile = () =>
+  typeof window !== 'undefined' &&
+  window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+
 export function FallingPattern({
 	color = 'var(--primary)',
 	backgroundColor = 'var(--background)',
@@ -10,6 +15,9 @@ export function FallingPattern({
 	density = 1,
 	className,
 }) {
+	// Skip entire animation on mobile — too GPU-intensive, causes scroll lag
+	if (isMobile()) return null;
+
 	// Generate background image style with customizable color
 	const generateBackgroundImage = () => {
 		const patterns = [

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaTwitter, FaArrowRight, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaArrowRight, FaEnvelope, FaYoutube } from 'react-icons/fa';
+import { SiLeetcode } from 'react-icons/si';
 import { ShaderAnimation } from './ui/shader-animation';
 export const Hero = () => {
   const profileImg = "https://res.cloudinary.com/dwusthzz5/image/upload/v1776362373/portfolio/profile/prxuhk2izlyyy16qxikw.png";
@@ -115,8 +116,14 @@ export const Hero = () => {
               <a href="https://www.linkedin.com/in/ammarmeman/" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-blue-500 transition-colors bg-zinc-900 border border-zinc-800 p-2.5 rounded-full hover:border-zinc-700">
                 <FaLinkedin size={18} />
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-blue-400 transition-colors bg-zinc-900 border border-zinc-800 p-2.5 rounded-full hover:border-zinc-700">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-blue-400 transition-colors bg-zinc-900 border border-zinc-800 p-2.5 rounded-full hover:border-zinc-700">
                 <FaTwitter size={18} />
+              </a>
+              <a href="https://leetcode.com/u/ammar-meman/" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-orange-400 transition-colors bg-zinc-900 border border-zinc-800 p-2.5 rounded-full hover:border-zinc-700">
+                <SiLeetcode size={18} />
+              </a>
+              <a href="https://www.youtube.com/@ProjectForgeOfficial" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-red-500 transition-colors bg-zinc-900 border border-zinc-800 p-2.5 rounded-full hover:border-zinc-700">
+                <FaYoutube size={18} />
               </a>
             </div>
           </motion.div>

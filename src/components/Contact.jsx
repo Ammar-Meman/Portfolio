@@ -1,7 +1,8 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
-import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaGithub, FaLinkedin, FaTwitter, FaPaperPlane, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
+import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaGithub, FaLinkedin, FaTwitter, FaPaperPlane, FaCheckCircle, FaExclamationCircle, FaYoutube } from 'react-icons/fa';
+import { SiLeetcode } from 'react-icons/si';
 
 // Animated dot grid shown below social icons
 const AnimatedDotGrid = () => {
@@ -47,17 +48,17 @@ export const Contact = () => {
 
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
       .then((result) => {
-          console.log(result.text);
-          setStatus('success');
-          form.current.reset();
+        console.log(result.text);
+        setStatus('success');
+        form.current.reset();
       }, (error) => {
-          console.log(error.text);
-          setStatus('error');
+        console.log(error.text);
+        setStatus('error');
       })
       .finally(() => {
-          setIsSending(false);
-          // Hide status after 5 seconds
-          setTimeout(() => setStatus(null), 5000);
+        setIsSending(false);
+        // Hide status after 5 seconds
+        setTimeout(() => setStatus(null), 5000);
       });
   };
 
@@ -113,15 +114,21 @@ export const Contact = () => {
                 </div>
 
                 {/* Social icons */}
-                <div className="pt-4 border-t border-zinc-800 flex gap-3">
+                <div className="pt-4 border-t border-zinc-800 flex gap-3 flex-wrap">
                   <a href="https://github.com/Ammar-Meman" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-zinc-800 text-zinc-400 rounded-full hover:bg-white hover:text-black transition-all border border-zinc-700">
                     <FaGithub size={18} />
                   </a>
                   <a href="https://www.linkedin.com/in/ammarmeman/" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-zinc-800 text-zinc-400 rounded-full hover:bg-blue-500 hover:text-white transition-all border border-zinc-700">
                     <FaLinkedin size={18} />
                   </a>
-                  <a href="#" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-zinc-800 text-zinc-400 rounded-full hover:bg-blue-400 hover:text-white transition-all border border-zinc-700">
+                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-zinc-800 text-zinc-400 rounded-full hover:bg-blue-400 hover:text-white transition-all border border-zinc-700">
                     <FaTwitter size={18} />
+                  </a>
+                  <a href="https://leetcode.com/u/ammar-meman/" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-zinc-800 text-zinc-400 rounded-full hover:bg-orange-500 hover:text-white transition-all border border-zinc-700">
+                    <SiLeetcode size={18} />
+                  </a>
+                  <a href="https://www.youtube.com/@ProjectForgeOfficial" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-zinc-800 text-zinc-400 rounded-full hover:bg-red-500 hover:text-white transition-all border border-zinc-700">
+                    <FaYoutube size={18} />
                   </a>
                 </div>
 
@@ -166,11 +173,10 @@ export const Contact = () => {
               <button
                 type="submit"
                 disabled={isSending}
-                className={`w-full py-4 font-bold text-base rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg active:scale-[0.98] ${
-                  isSending 
-                    ? "bg-zinc-800 text-zinc-500 cursor-not-allowed" 
+                className={`w-full py-4 font-bold text-base rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg active:scale-[0.98] ${isSending
+                    ? "bg-zinc-800 text-zinc-500 cursor-not-allowed"
                     : "bg-white text-black hover:bg-zinc-200"
-                }`}
+                  }`}
               >
                 {isSending ? (
                   <>

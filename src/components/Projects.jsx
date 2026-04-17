@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
 import { FiExternalLink, FiGithub } from 'react-icons/fi';
+import { FaYoutube } from 'react-icons/fa';
 import { GlowCard } from './ui/spotlight-card';
 
 const projects = [
@@ -10,6 +11,8 @@ const projects = [
     tags: ["React", "Node.js", "Express", "MongoDB"],
     liveLink: "https://classpulse-dev.netlify.app/",
     sourceLink: "https://github.com/Ammar-Meman/Class-Pulse",
+    youtubeLink: "https://youtu.be/Sp486uYEC_k?si=AmzXTsExhkAVYpuw",
+    category: "Full Stack",
     glowColor: "blue",
     images: [
       "https://res.cloudinary.com/dwusthzz5/image/upload/v1776362360/portfolio/projects/mbumfzwu8cq1mtufs8l0.jpg",
@@ -22,6 +25,7 @@ const projects = [
     description: "GitHub User Finder application allowing users to search and view GitHub profiles and their metadata seamlessly.",
     tags: ["JavaScript", "GitHub API", "CSS"],
     liveLink: "https://devfinder-js.netlify.app/",
+    category: "Frontend",
     glowColor: "purple",
     images: [
       "https://res.cloudinary.com/dwusthzz5/image/upload/v1776362364/portfolio/projects/d5dtkrvakpkcycuvomzd.jpg",
@@ -34,6 +38,7 @@ const projects = [
     description: "Discover and explore delicious recipes from around the world using this intuitive recipe finder and explorer app.",
     tags: ["React", "Food API", "TailwindCSS"],
     liveLink: "https://react-food-explorer.netlify.app/",
+    category: "Frontend",
     glowColor: "orange",
     images: [
       "https://res.cloudinary.com/dwusthzz5/image/upload/v1776362367/portfolio/projects/kaxh36xi6l84okgagxiy.jpg",
@@ -42,11 +47,61 @@ const projects = [
     ],
   },
   {
+    title: "Click Counter Game",
+    description: "A fast-paced clicking game where players test their speed and accuracy to achieve the highest score.",
+    tags: ["JavaScript", "HTML5", "CSS3", "Game"],
+    liveLink: "https://ammar-click-counter.netlify.app",
+    sourceLink: "https://github.com/Ammar-Meman/Game-Development/tree/main/Click%20Counter",
+    category: "Games",
+    glowColor: "green",
+    images: [
+      "https://res.cloudinary.com/dwusthzz5/image/upload/v1776447605/portfolio/games/click-counter.png"
+    ],
+  },
+  {
+    title: "Color Guessing Game",
+    description: "An engaging RGB color guessing game that challenges players to match color codes with their visual representations.",
+    tags: ["JavaScript", "HTML5", "CSS3", "Game"],
+    liveLink: "https://ammar-color-guess.netlify.app",
+    sourceLink: "https://github.com/Ammar-Meman/Game-Development/tree/main/Color%20Guessing",
+    category: "Games",
+    glowColor: "yellow",
+    images: [
+      "https://res.cloudinary.com/dwusthzz5/image/upload/v1776447609/portfolio/games/color-guess.png"
+    ],
+  },
+  {
+    title: "Memory Flip Card Game",
+    description: "A classic memory matching game featuring smooth flip animations and a scoring system.",
+    tags: ["JavaScript", "HTML5", "CSS3", "Game"],
+    liveLink: "https://ammar-memory-flip.netlify.app",
+    sourceLink: "https://github.com/Ammar-Meman/Game-Development/tree/main/Memory%20Flip%20Card%20Game",
+    category: "Games",
+    glowColor: "purple",
+    images: [
+      "https://res.cloudinary.com/dwusthzz5/image/upload/v1776447613/portfolio/games/memory-flip.png"
+    ],
+  },
+  {
+    title: "TimeCure",
+    description: "Smart Appointment Scheduling System built during Craftathon '26 to optimize hospital waiting times.",
+    tags: ["Hackathon", "Web Dev", "Healthcare"],
+    liveLink: "https://cortex-crew-time-cure.vercel.app/",
+    sourceLink: "https://github.com/Jivan-Patel/CortexCrew_TimeCure",
+    category: "Hackathons",
+    glowColor: "orange",
+    images: [
+      "https://res.cloudinary.com/dwusthzz5/image/upload/v1776447863/portfolio/hackathon/time-cure.png"
+    ],
+  },
+  {
     title: "Mahindra Auto Website Clone",
     description: "A high-fidelity website clone of Mahindra Auto, focusing on modern UI/UX and responsive design.",
     tags: ["HTML", "CSS", "UI Clone"],
     liveLink: "https://mahindra-auto-clone.vercel.app",
     sourceLink: "https://github.com/Ammar-Meman/Website-Clone/tree/main/Mahindra-Auto-Clone",
+    youtubeLink: "https://youtu.be/HQMDMmM7GMI?si=bUJ3bveAd7wcHyna",
+    category: "Clones",
     glowColor: "red",
     images: [
       "https://res.cloudinary.com/dwusthzz5/image/upload/v1776366841/portfolio/future_use/r1ioojd1txni9gwsqx28.png",
@@ -60,6 +115,8 @@ const projects = [
     tags: ["HTML", "CSS", "UI Clone"],
     liveLink: "https://nzxt-umber.vercel.app",
     sourceLink: "https://github.com/Ammar-Meman/Website-Clone/tree/main/NZXT",
+    youtubeLink: "https://youtu.be/gY9xGCOLFCE?si=f_l3ecZ6L5EplGUz",
+    category: "Clones",
     glowColor: "purple",
     images: [
       "https://res.cloudinary.com/dwusthzz5/image/upload/v1776366848/portfolio/future_use/eqlfgl8pmgqbewnuxjwx.png",
@@ -73,6 +130,8 @@ const projects = [
     tags: ["HTML", "CSS", "UI Clone"],
     liveLink: "https://apexfintech-clone.vercel.app",
     sourceLink: "https://github.com/Ammar-Meman/Website-Clone/tree/main/APEX",
+    youtubeLink: "https://youtu.be/AD6XjX8apso?si=oYZyFFyDaeZJ3G0D",
+    category: "Clones",
     glowColor: "blue",
     images: [
       "https://res.cloudinary.com/dwusthzz5/image/upload/v1776366818/portfolio/future_use/ztnotrnnamufrh0bfoya.png",
@@ -86,6 +145,8 @@ const projects = [
     tags: ["HTML", "CSS", "UI Clone"],
     liveLink: "https://italic-bay.vercel.app",
     sourceLink: "https://github.com/Ammar-Meman/Website-Clone/tree/main/ITALIC",
+    youtubeLink: "https://youtu.be/85FzF_GOnZQ?si=FkTF0PnspdwIPo-6",
+    category: "Clones",
     glowColor: "zinc",
     images: [
       "https://res.cloudinary.com/dwusthzz5/image/upload/v1776366835/portfolio/future_use/aygph2dtm857bgziftml.png",
@@ -99,11 +160,27 @@ const projects = [
     tags: ["HTML", "CSS", "UI Clone"],
     liveLink: "https://icalm-pearl.vercel.app",
     sourceLink: "https://github.com/Ammar-Meman/Website-Clone/tree/main/icalm",
+    category: "Clones",
     glowColor: "teal",
     images: [
       "https://res.cloudinary.com/dwusthzz5/image/upload/v1776366825/portfolio/future_use/qpvzsbdktx2ud0kdqkin.png",
       "https://res.cloudinary.com/dwusthzz5/image/upload/v1776366818/portfolio/future_use/ztnotrnnamufrh0bfoya.png",
       "https://res.cloudinary.com/dwusthzz5/image/upload/v1776366835/portfolio/future_use/aygph2dtm857bgziftml.png"
+    ],
+  },
+  {
+    title: "Noom Website Clone",
+    description: "A highly interactive clone of the Noom website with modern UI patterns and smooth animations.",
+    tags: ["HTML", "CSS", "UI Clone"],
+    liveLink: "https://github.com/Ammar-Meman/Website-Clone",
+    sourceLink: "https://github.com/Ammar-Meman/Website-Clone",
+    youtubeLink: "https://youtu.be/mJCJ4XfAyEg?si=xXAwhQ1aUFe8sKAZ",
+    category: "Clones",
+    glowColor: "green",
+    images: [
+      "https://res.cloudinary.com/dwusthzz5/image/upload/v1776366841/portfolio/future_use/r1ioojd1txni9gwsqx28.png",
+      "https://res.cloudinary.com/dwusthzz5/image/upload/v1776366848/portfolio/future_use/eqlfgl8pmgqbewnuxjwx.png",
+      "https://res.cloudinary.com/dwusthzz5/image/upload/v1776366825/portfolio/future_use/qpvzsbdktx2ud0kdqkin.png"
     ],
   }
 ];
@@ -143,6 +220,7 @@ const ProjectImageGallery = ({ images, title, currentIndex, onIndexChange }) => 
 
 export const Projects = () => {
   const [showAll, setShowAll] = useState(false);
+  const [activeFilter, setActiveFilter] = useState("All");
   const [activeProject, setActiveProject] = useState(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
@@ -157,7 +235,13 @@ export const Projects = () => {
     mouseY.set(e.clientY);
   };
 
-  const displayedProjects = showAll ? projects : projects.slice(0, 6);
+  const categories = ["All", "Full Stack", "Frontend", "Games", "Hackathons", "Clones"];
+
+  const filteredProjects = activeFilter === "All" 
+    ? projects 
+    : projects.filter(p => p.category === activeFilter);
+
+  const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 6);
 
   return (
     <section 
@@ -169,10 +253,26 @@ export const Projects = () => {
 
         <div className="text-center md:text-left mb-16">
           <p className="text-sm font-bold text-blue-500 uppercase tracking-widest mb-4">03 / Work</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">Featured Work</h2>
-          <p className="text-zinc-400 text-lg max-w-2xl leading-relaxed font-light">
-            Slide horizontally across any card to cycle through project previews.
-          </p>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">Featured Work</h2>
+              <p className="text-zinc-400 text-lg max-w-2xl leading-relaxed font-light">
+                Slide horizontally across any card to cycle through project previews.
+              </p>
+            </div>
+            {/* Filter Buttons */}
+            <div className="flex flex-wrap gap-2 md:justify-end">
+              {categories.map(cat => (
+                <button
+                  key={cat}
+                  onClick={() => { setActiveFilter(cat); setShowAll(false); }}
+                  className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${activeFilter === cat ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/25' : 'bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 hover:bg-zinc-800'}`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
@@ -213,6 +313,11 @@ export const Projects = () => {
                         {project.sourceLink && (
                           <a href={project.sourceLink} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-white transition-colors">
                             <FiGithub size={20} />
+                          </a>
+                        )}
+                        {project.youtubeLink && (
+                          <a href={project.youtubeLink} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-red-500 transition-colors">
+                            <FaYoutube size={22} />
                           </a>
                         )}
                         <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-white transition-colors">
