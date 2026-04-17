@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaAward, FaExternalLinkAlt } from 'react-icons/fa';
 import { GlowCard } from './ui/spotlight-card';
+import { optimizeCloudinaryUrl } from './Projects';
 
 const certifications = [
   {
@@ -137,8 +138,9 @@ export const Certifications = () => {
                     {/* Header row with Vague Preview */}
                     <div className="relative w-full h-36 sm:h-40 mb-5 rounded-xl overflow-hidden group/preview border border-zinc-800/50 bg-zinc-900">
                       <img 
-                        src={cert.preview} 
+                        src={optimizeCloudinaryUrl(cert.preview)} 
                         alt={cert.title} 
+                        loading="lazy"
                         className="w-full h-full object-cover grayscale opacity-40 group-hover/preview:opacity-70 transition-all duration-500 group-hover/preview:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 to-transparent" />

@@ -1,15 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Lenis from 'lenis';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { About } from './components/About';
-import { Skills } from './components/Skills';
-import { Projects } from './components/Projects';
-import { Hackathons } from './components/Hackathons';
-import { Certifications } from './components/Certifications';
-import { Contact } from './components/Contact';
 import { FallingPattern } from './components/ui/falling-pattern';
+
+const About = lazy(() => import('./components/About').then(m => ({ default: m.About })));
+const Skills = lazy(() => import('./components/Skills').then(m => ({ default: m.Skills })));
+const Projects = lazy(() => import('./components/Projects').then(m => ({ default: m.Projects })));
+const Hackathons = lazy(() => import('./components/Hackathons').then(m => ({ default: m.Hackathons })));
+const Certifications = lazy(() => import('./components/Certifications').then(m => ({ default: m.Certifications })));
+const Contact = lazy(() => import('./components/Contact').then(m => ({ default: m.Contact })));
 
 function App() {
   const [showIntro, setShowIntro] = useState(true);
@@ -81,12 +82,14 @@ function App() {
 
         <main className={`transition-opacity duration-1000 ${showIntro ? 'opacity-0' : 'opacity-100'}`}>
           <Hero />
-          <About />
-          <Skills />
-          <Projects />
-          <Hackathons />
-          <Certifications />
-          <Contact />
+          <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-zinc-500">Loading...</div>}>
+            <About />
+            <Skills />
+            <Projects />
+            <Hackathons />
+            <Certifications />
+            <Contact />
+          </Suspense>
         </main>
       </div>
     </div>

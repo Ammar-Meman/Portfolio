@@ -4,6 +4,12 @@ import { FiExternalLink, FiGithub } from 'react-icons/fi';
 import { FaYoutube } from 'react-icons/fa';
 import { GlowCard } from './ui/spotlight-card';
 
+export const optimizeCloudinaryUrl = (url) => {
+  if (!url || !url.includes('cloudinary.com')) return url;
+  if (url.includes('/upload/f_auto,q_auto/')) return url;
+  return url.replace('/upload/', '/upload/f_auto,q_auto/');
+};
+
 const projects = [
   {
     title: "Class-Pulse",
@@ -209,8 +215,9 @@ const ProjectImageGallery = ({ images, title, currentIndex, onIndexChange }) => 
       className="w-full h-36 sm:h-44 mb-5 overflow-hidden rounded-xl border border-zinc-800/50 relative group-hover:border-zinc-700/80 transition-colors bg-zinc-900 shrink-0 cursor-crosshair"
     >
       <img 
-        src={images[0]} 
+        src={optimizeCloudinaryUrl(images[0])} 
         alt={title} 
+        loading="lazy"
         className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-transparent to-transparent pointer-events-none" />
@@ -381,8 +388,9 @@ export const Projects = () => {
             <div className="relative w-full h-full p-2">
                {/* Fixed: Added the Image Tag */}
                <img 
-                 src={activeProject.images[activeImageIndex]} 
+                 src={optimizeCloudinaryUrl(activeProject.images[activeImageIndex])} 
                  alt="Preview"
+                 loading="lazy"
                  className="w-full h-full object-cover rounded-xl opacity-60"
                />
                <div className="absolute inset-0 bg-blue-500/5 mix-blend-overlay" />

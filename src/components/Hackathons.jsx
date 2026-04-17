@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { GlowCard } from './ui/spotlight-card';
+import { optimizeCloudinaryUrl } from './Projects';
 
 const hackathons = [
   {
     name: "CRAFTATHON '26",
     badge: "First Offline Hackathon",
     duration: "36 Hours",
-    organizer: "IEEE Computer Society — Gujarat Chapter",
+    organizer: "IEEE Computer Society — Gandhinagar University",
     project: "Smart Appointment Scheduling System",
     description:
       "My first real offline hackathon — 36 hours of building under pressure with almost no sleep. We tackled a real-world problem: making hospital waiting times predictable instead of frustrating. Built a full system with patient booking, doctor dashboards, smart time-slot estimation, and SMS reminders for likely no-shows. Beyond the features, this taught me the value of clear thinking, focused teamwork, and staying composed when things don't go as planned.",
@@ -43,8 +44,9 @@ const PhotoCarousel = ({ photos, accentColor }) => {
       <AnimatePresence mode="wait">
         <motion.img
           key={current}
-          src={photos[current].src}
+          src={optimizeCloudinaryUrl(photos[current].src)}
           alt={photos[current].alt}
+          loading="lazy"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ objectPosition: photos[current].pos }}
           initial={{ opacity: 0, scale: 1.04 }}
