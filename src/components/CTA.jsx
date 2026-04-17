@@ -44,7 +44,7 @@ export const CTA = () => {
             <a href="https://github.com/Ammar-Meman" target="_blank" rel="noopener noreferrer" className="px-5 py-3 bg-white border border-gray-200 text-gray-700 rounded-full text-xs font-bold flex items-center gap-2 hover:bg-gray-50 transition-all shadow-sm">
               <FaGithub /> GitHub
             </a>
-            <a href="/ammar_meman_resume.pdf" download className="px-5 py-3 bg-white border border-gray-200 text-gray-700 rounded-full text-xs font-bold flex items-center gap-2 hover:bg-gray-50 transition-all shadow-sm">
+            <a href="https://res.cloudinary.com/dwusthzz5/raw/upload/v1776456392/portfolio/resume/ammar_meman_resume.pdf" target="_blank" rel="noopener noreferrer" className="px-5 py-3 bg-white border border-gray-200 text-gray-700 rounded-full text-xs font-bold flex items-center gap-2 hover:bg-gray-50 transition-all shadow-sm">
               <FaFileAlt /> Download Resume
             </a>
           </div>
