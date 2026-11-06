@@ -11,8 +11,12 @@ const hackathons = [
     duration: "36 Hours",
     organizer: "IEEE Computer Society — Gandhinagar University",
     project: "Smart Appointment Scheduling System",
-    description:
-      "My first real offline hackathon — 36 hours of building under pressure with almost no sleep. We tackled a real-world problem: making hospital waiting times predictable instead of frustrating. Built a full system with patient booking, doctor dashboards, smart time-slot estimation, and SMS reminders for likely no-shows. Beyond the features, this taught me the value of clear thinking, focused teamwork, and staying composed when things don't go as planned.",
+    description: `My first-ever offline hackathon — 36 hours of building, problem-solving, and pushing through challenges with barely any sleep.
+                  Our team tackled a real-world healthcare problem: addressing long and unpredictable hospital waiting times through better appointment scheduling and patient flow.
+                  We built a system featuring patient appointment booking, doctor dashboards, smart time-slot estimation, and SMS reminders to help minimize missed appointments.
+                  Beyond the technical side, this experience taught me the importance of thinking clearly under pressure, communicating effectively with teammates, adapting when things don't go as planned, and staying focused on solving the problem.
+
+36 hours, countless challenges, and plenty of lessons learned. An experience I'll definitely remember!`,
     tags: ["Healthcare", "Web Dev", "Teamwork", "36 hrs"],
     team: "CortexCrew",
     teamMembers: ["Prathvik Mehra", "Parv Suhagiya", "Patel Jivan"],
