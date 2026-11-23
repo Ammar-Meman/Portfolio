@@ -4,8 +4,9 @@ import { GlowCard } from './ui/spotlight-card';
 import { 
   SiHtml5, SiCss3, SiJavascript, SiReact, SiTailwindcss, 
   SiNodedotjs, SiMongodb, SiExpress, SiGit, SiGithub, 
-  SiFigma, SiPostman, SiVercel, SiNetlify 
+  SiFigma, SiPostman, SiVercel, SiNetlify, SiNextdotjs 
 } from 'react-icons/si';
+import { TbSql } from 'react-icons/tb';
 
 const categoriesData = {
   "Frontend": [
@@ -13,12 +14,14 @@ const categoriesData = {
     { name: "CSS3", icon: <SiCss3 className="text-[#1572B6]" /> },
     { name: "JavaScript", icon: <SiJavascript className="text-[#F7DF1E]" /> },
     { name: "React", icon: <SiReact className="text-[#61DAFB]" /> },
+    { name: "Next.js", icon: <SiNextdotjs className="text-white" /> },
     { name: "TailwindCSS", icon: <SiTailwindcss className="text-[#06B6D4]" /> }
   ],
   "Backend": [
     { name: "Node.js", icon: <SiNodedotjs className="text-[#339933]" /> },
+    { name: "Express", icon: <SiExpress className="text-white" /> },
     { name: "MongoDB", icon: <SiMongodb className="text-[#47A248]" /> },
-    { name: "Express", icon: <SiExpress className="text-white" /> }
+    { name: "SQL", icon: <TbSql className="text-[#00758F]" /> }
   ],
   "Tools": [
     { name: "Git", icon: <SiGit className="text-[#F05032]" /> },
