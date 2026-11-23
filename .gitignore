@@ -33,6 +33,7 @@ public/certificates/
 public/images/
 public/ammar_meman_resume.pdf
 public/resume.pdf
-public/projects/
+public/projects/*
+!public/projects/ignis-jwaala.png
 public/clones/
 src/assets/Screenshot_2026-04-08_223927-removebg-preview.png

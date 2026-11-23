@@ -12,6 +12,18 @@ export const optimizeCloudinaryUrl = (url) => {
 
 const projects = [
   {
+    title: "IGNIS JWAALA — Vanguard Arena",
+    description: "Full-stack MERN arena platform for college vanguard activities featuring live game tracking, interactive polls, dynamic leaderboards, and JWT-secured admin dashboards.",
+    tags: ["React", "Node.js", "Express", "MongoDB"],
+    liveLink: "https://team-ignis.vercel.app/",
+    sourceLink: "https://github.com/Ammar-Meman/team_Ignis",
+    category: "Full Stack",
+    glowColor: "orange",
+    images: [
+      "/projects/ignis-jwaala.png"
+    ],
+  },
+  {
     title: "Class-Pulse",
     description: "A comprehensive voting and polling system with distinct student and teacher functionalities, real-time analytics, and secure session management.",
     tags: ["React", "Node.js", "Express", "MongoDB"],
